@@ -7,23 +7,27 @@ import { PostsRepository } from './post.repository';
 export class PostsService {
   constructor(private readonly postsRepository: PostsRepository) {}
   async create(createPostDto: CreatePostDto) {
-    const CreateOne = await this.postsRepository.createOne(createPostDto);
-    return CreateOne;
+    const createOne = await this.postsRepository.createOne(createPostDto);
+    return createOne;
   }
 
-  findAll() {
-    return `This action returns all posts`;
+  async findAll() {
+    const findAll = await this.postsRepository.findAll();
+    return findAll;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: string) {
+    const findOne = await this.postsRepository.findOne(id);
+    return findOne;
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: string, updatePostDto: UpdatePostDto) {
+    const update = await this.postsRepository.update(id, updatePostDto);
+    return update;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: string) {
+    const remove = await this.postsRepository.remove(id);
+    return remove;
   }
 }

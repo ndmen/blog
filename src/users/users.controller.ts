@@ -10,14 +10,4 @@ export class UsersController {
   async create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
-
-  //   @Get()
-  //   async findAll() {
-  //     return this.usersService.findAll();
-  //   }
-
-  @Get(':login')
-  async findOne(@Param('login') login: string) {
-    return this.usersService.findOne(login);
-  }
 }

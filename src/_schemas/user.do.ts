@@ -2,12 +2,12 @@ import { Types } from 'mongoose';
 
 export class UserDo {
   _id: Types.ObjectId;
-  login: string;
+  username: string;
   password: string;
 
   constructor(props: Partial<UserDo>) {
     this._id = props._id;
-    this.login = props.login || null;
+    this.username = props.username || null;
     this.password = props.password || null;
   }
 }

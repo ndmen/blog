@@ -7,7 +7,12 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/blog'), PostsModule, AuthModule, UsersModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/blog'),
+    PostsModule,
+    AuthModule,
+    UsersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

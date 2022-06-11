@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 export type PostDocument = Post & Document;
 
-@Schema()
+@Schema({ versionKey: false })
 export class Post {
   @Prop()
   title: string;

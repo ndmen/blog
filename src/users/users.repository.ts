@@ -13,8 +13,8 @@ export class UsersRepository {
     return createOne;
   }
 
-  async findOne(login): Promise<any> {
-    const findOne = await this.userModel.findOne({ login: login });
+  async findOne(username): Promise<any> {
+    const findOne = await this.userModel.findOne({ username: username });
     return findOne;
   }
 }

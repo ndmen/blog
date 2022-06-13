@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog</title>
+  </head>
+  <body>
+    <h1>Blog</h1>
+    <a href="http://localhost:3000/posts/create-post">Create Post</a>
+    <div class="list">
+     {{#each message}}
+    <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> {{this.author}} </div> <br />
+     {{/each}}
+    </div>
+  </body>
+</html>

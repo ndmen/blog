@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
@@ -8,7 +9,8 @@ import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/blog'),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.BLOG_DB),
     PostsModule,
     AuthModule,
     UsersModule,

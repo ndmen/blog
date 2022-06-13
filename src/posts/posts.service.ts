@@ -13,12 +13,12 @@ export class PostsService {
 
   async findAll() {
     const findAll = await this.postsRepository.findAll();
-    return findAll;
+    return { message: findAll };
   }
 
   async findOne(id: string) {
     const findOne = await this.postsRepository.findOne(id);
-    return findOne;
+    return { message: findOne };
   }
 
   async update(id: string, updatePostDto: UpdatePostDto) {

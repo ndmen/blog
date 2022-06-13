@@ -3,7 +3,9 @@ import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AppService } from './app.service';
 import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('auth')
 @Controller()
 export class AppController {
   constructor(
@@ -29,7 +31,7 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('profile')
+  @Get('auth/profile')
   getProfile(@Request() req) {
     return req.user;
   }

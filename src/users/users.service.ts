@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersRepository } from './users.repository';
-import { createCipheriv, createDecipheriv, randomBytes, scrypt } from 'crypto';
-import { promisify } from 'util';
+import * as bcrypt from 'bcrypt';
 
 export type User = any;
 
@@ -25,6 +24,7 @@ export class UsersService {
   ];
 
   async create(createUserDto: CreateUserDto) {
+    createUserDto.password = await this.hashPassword(createUserDto.password);
     const createOne = await this.usersRepository.createOne(createUserDto);
     return createOne;
   }
@@ -33,34 +33,20 @@ export class UsersService {
     return this.users.find((user) => user.username === username);
   }
 
-  async encryptPassword(password: string) {
-    const iv = randomBytes(16);
-    const salt = 'salt';
-
-    const key = (await promisify(scrypt)(password, salt, 32)) as Buffer;
-    const cipher = createCipheriv('aes-256-ctr', key, iv);
-
-    const textToEncrypt = 'Nest';
-    const encryptedText = Buffer.concat([
-      cipher.update(textToEncrypt),
-      cipher.final(),
-    ]);
-
-    console.log(encryptedText);
+  async hashPassword(password: string): Promise<string> {
+    const salt = await bcrypt.genSalt(12);
+    const hash = await bcrypt.hash(password, salt);
+    return hash;
   }
 
-  // async decryptPassword(password: string) {
-  //   const iv = randomBytes(16);
-  //   const salt = 'salt';
-
-  //   const key = (await promisify(scrypt)(password, salt, 32)) as Buffer;
-
-  //   const decipher = createDecipheriv('aes-256-ctr', key, iv);
-  //   const decryptedText = Buffer.concat([
-  //     decipher.update(encryptedText),
-  //     decipher.final(),
-  //   ]);
-
-  //   console.log(decryptedText);
+  // async validateHashedPassword(username: string, password: string) {
+  //   const user = await this.userModel
+  //     .findOne({ login: username })
+  //     .select('+password');
+  //   if (user) {
+  //     const hash = user.hashedPassword;
+  //     const isMatch = await bcrypt.compare(password, hash);
+  //     return isMatch;
+  //   } else return false;
   // }
 }

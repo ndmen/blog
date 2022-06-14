@@ -12,10 +12,4 @@ export class UsersController {
   async create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
-
-  @Get('hash')
-  async getHashedPassword() {
-    return this.usersService.encryptPassword('password');
-    //   this.usersService.decryptPassword('password')
-  }
 }

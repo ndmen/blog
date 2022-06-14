@@ -4,7 +4,7 @@ export class PostDo {
   _id: Types.ObjectId;
   title: string;
   description: string;
-  author: string;
+  author: Types.ObjectId;
 
   constructor(props: Partial<PostDo>) {
     this._id = props._id;

@@ -13,9 +13,6 @@ import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-// import { Roles } from 'src/_decorators/roles.decorator';
-// import { Role } from 'src/_shared/interfaces';
-import { RolesGuard } from 'src/_guards/roles.guards';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('posts')
@@ -23,8 +20,7 @@ import { ApiTags } from '@nestjs/swagger';
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
-  // @UseGuards(JwtAuthGuard, RolesGuard)
-  // @Roles(Role.User)
+  // @UseGuards(JwtAuthGuard)
   @Post()
   @Render('create-post')
   async create(@Body() createPostDto: CreatePostDto) {
@@ -45,13 +41,13 @@ export class PostsController {
     return this.postsService.findOne(id);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(id, updatePostDto);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.postsService.remove(id);

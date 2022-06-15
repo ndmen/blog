@@ -24,7 +24,13 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+It is a blog on Nest.js(Passport(JWT+Local)) and MongoDB(Mongoose). You can:
+1. Login, Register
+2. Create, read, update and delete posts.
+
+See OpenAPI(Swagger) http://localhost:3000/api/#/
+
+See blog on Handlebars http://localhost:3000/posts
 
 ## Installation
 

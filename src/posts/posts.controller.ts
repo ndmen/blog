@@ -27,14 +27,14 @@ export class PostsController {
     return this.postsService.create(createPostDto);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get()
   @Render('index')
   async findAll() {
     return this.postsService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get(':id')
   @Render('post')
   async findOne(@Param('id') id: string) {

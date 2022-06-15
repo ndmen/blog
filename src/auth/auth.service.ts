@@ -8,6 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
 import { LoginUserDto } from 'src/users/dto/login-user.dto';
 import { RegisterUserDto } from 'src/users/dto/register-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,9 @@ export class AuthService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-    if (password === user.password) {
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (isMatch) {
       return user;
     }
   }
@@ -31,6 +34,7 @@ export class AuthService {
       loginUserDto.username,
       loginUserDto.password,
     );
+
     if (user) {
       const payload = {
         username: user.username,
@@ -50,9 +54,12 @@ export class AuthService {
         HttpStatus.BAD_REQUEST,
       );
     }
-
-    const createOne = await this.usersService.createOne(registerUserDto);
-
+    const saltOrRounds = 10;
+    const hash = await bcrypt.hash(registerUserDto.password, saltOrRounds);
+    const createOne = await this.usersService.createOne({
+      ...registerUserDto,
+      password: hash,
+    });
     if (createOne) {
       const payload = {
         username: createOne.username,

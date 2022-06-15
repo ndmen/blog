@@ -4,7 +4,6 @@ import { UsersModule } from 'src/users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStategy } from './jwt.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constants';
 import { AuthController } from './auth.controller';
 import { LocalStrategy } from './local.strategy';
 
@@ -13,7 +12,7 @@ import { LocalStrategy } from './local.strategy';
     UsersModule,
     PassportModule,
     JwtModule.register({
-      secret: jwtConstants.secret,
+      secret: `${process.env.BLOG_JWTSECRET}`,
       signOptions: { expiresIn: '360s' },
     }),
   ],

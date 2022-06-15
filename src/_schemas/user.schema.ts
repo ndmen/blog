@@ -5,7 +5,7 @@ export type UserDocument = User & Document;
 
 @Schema({ versionKey: false, timestamps: true })
 export class User {
-  @Prop()
+  @Prop({ required: true, index: true })
   username: string;
 
   @Prop()

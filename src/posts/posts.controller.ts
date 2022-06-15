@@ -20,34 +20,34 @@ import { ApiTags } from '@nestjs/swagger';
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Post()
   @Render('create-post')
   async create(@Body() createPostDto: CreatePostDto) {
     return this.postsService.create(createPostDto);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get()
   @Render('index')
   async findAll() {
     return this.postsService.findAll();
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @Render('post')
   async findOne(@Param('id') id: string) {
     return this.postsService.findOne(id);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(id, updatePostDto);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.postsService.remove(id);

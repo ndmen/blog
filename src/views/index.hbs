@@ -6,10 +6,12 @@
   </head>
   <body>
     <h1>Blog</h1>
+    <a href="http://localhost:3000/auth/login">Login</a> <br />
+    <a href="http://localhost:3000/auth/login">Register</a> <br />
     <a href="http://localhost:3000/posts/create-post">Create Post</a>
     <div class="list">
      {{#each message}}
-    <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> {{this.author}} </div> <br />
+    <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> {{this.author}} <br /> {{this.categories}} </div> <br />
      {{/each}}
     </div>
   </body>

@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsString, IsArray } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdatePostDto {
@@ -9,6 +9,10 @@ export class UpdatePostDto {
   @ApiProperty()
   @IsString()
   description: string;
+
+  @ApiProperty()
+  @IsArray()
+  categories: Array<string>;
 
   @ApiProperty()
   @IsString()

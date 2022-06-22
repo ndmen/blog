@@ -27,6 +27,7 @@
 It is a blog on Nest.js(Passport(JWT+Local)) and MongoDB(Mongoose). You can:
 1. Login, Register
 2. Create, read, update and delete posts.
+3. Create, read comments by post id.
 
 See OpenAPI(Swagger) http://localhost:3000/api/#/
 

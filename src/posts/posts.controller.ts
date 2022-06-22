@@ -52,4 +52,13 @@ export class PostsController {
   async remove(@Param('id') id: string) {
     return this.postsService.remove(id);
   }
+
+  // @UseGuards(JwtAuthGuard)
+  @Patch('likes/:id')
+  async createLike(
+    @Param('id') id: string,
+    @Body() updatePostDto: UpdatePostDto,
+  ) {
+    return this.postsService.createLike(id, updatePostDto);
+  }
 }

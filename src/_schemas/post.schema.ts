@@ -16,6 +16,9 @@ export class Post {
 
   @Prop({ ref: 'User', type: SchemaTypes.ObjectId })
   author: Types.ObjectId;
+
+  @Prop()
+  likes: string;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

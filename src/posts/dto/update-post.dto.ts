@@ -1,4 +1,4 @@
-import { IsString, IsArray } from 'class-validator';
+import { IsString, IsArray, IsNumber } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdatePostDto {
@@ -17,4 +17,8 @@ export class UpdatePostDto {
   @ApiProperty()
   @IsString()
   author: string;
+
+  @ApiProperty()
+  @IsNumber()
+  likes: number;
 }

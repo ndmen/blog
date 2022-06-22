@@ -6,6 +6,7 @@ export class PostDo {
   description: string;
   categories: Array<string>;
   author: Types.ObjectId;
+  likes: number;
 
   constructor(props: Partial<PostDo>) {
     this._id = props._id;
@@ -13,5 +14,6 @@ export class PostDo {
     this.description = props.description || null;
     this.categories = props.categories || null;
     this.author = props.author || null;
+    this.likes = props.likes || null;
   }
 }

@@ -30,4 +30,16 @@ export class PostsService {
     const remove = await this.postsRepository.remove(id);
     return remove;
   }
+
+  async createLike(id: string, updatePostDto: UpdatePostDto) {
+    const post = await this.findOne(id);
+    if (post) {
+      const addLikes = parseInt(post.message.likes) + 1;
+      const update = await this.postsRepository.update(id, {
+        ...updatePostDto,
+        likes: addLikes,
+      });
+      return update;
+    }
+  }
 }

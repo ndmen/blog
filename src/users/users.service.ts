@@ -9,6 +9,11 @@ export class UsersService {
     return this.usersRepository.findOne(username);
   }
 
+  async findOneById(id): Promise<any> {
+    const findOneById = await this.usersRepository.findOneById(id);
+    return { user: findOneById };
+  }
+
   async createOne(user): Promise<any> {
     const createOne = await this.usersRepository.createOne(user);
     return createOne;

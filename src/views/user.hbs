@@ -6,15 +6,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Blog</h1>
-    <a href="http://localhost:3000/posts">Back to Posts</a> <br />
-    <a href="http://localhost:3000/comments/create-comment">Create Comment</a>
-    <p>Comments:</p>
-    <div class="list">
-     {{#each message}}
-    <div> Comment: {{this.comment}} <br /> Author: <a href="http://localhost:3000/users/{{this.author}}">{{this.author}}</a>  </div> <br />
-     {{/each}}
-    </div>
+    <a href="http://localhost:3000/posts"><h1>Blog</h1></a>
+    <a href="http://localhost:3000/posts">Back to Posts</a>
+    <p>Author:</p>
+    <div>{{user._id}} <br /> {{user.username}} <br /> {{user.firstname}} <br /> {{user.lastname}} <br /> {{user.bio}} <br /> </div> <br />
 
     Author: <a href="https://github.com/ndmen/blog">@ndmen</a>
   </body>

@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Blog</h1>
+    <a href="http://localhost:3000/posts"><h1>Blog</h1></a>
     <a href="http://localhost:3000/posts">Back to Posts</a>
-    <div><h2>{{message.title}}</h2> {{message.description}} <br /> Author: {{message.author}} <br /> Categories: {{message.categories}} <br /> Likes: {{message.likes}} <a href="http://localhost:3000/posts/create-like">Like</a></div> <br />
+    <div><h2>{{message.title}}</h2> {{message.description}} <br /> Author: <a href="http://localhost:3000/users/{{message.author}}">{{message.author}}</a> <br /> Categories: {{message.categories}} <br /> Likes: {{message.likes}} <a href="http://localhost:3000/posts/create-like">Like</a></div> <br />
     </div>
     <a href="http://localhost:3000/posts/edit-post">Edit</a>
     <a href="http://localhost:3000/posts/delete-post">Delete</a> <br />

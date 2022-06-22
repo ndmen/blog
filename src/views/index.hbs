@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Blog</h1>
+    <a href="http://localhost:3000/posts"><h1>Blog</h1></a>
     <h3>About blog</h3>
     <a href="http://localhost:3000/auth/login">Login</a> <br />
     <a href="http://localhost:3000/auth/login">Register</a> <br />
-    <a href="http://localhost:3000/posts/create-post">Create Post</a>
+    <a href="http://localhost:3000/posts/create-post">Create Post</a> <br />
     <div class="list">
      {{#each message}}
-    <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> Author: {{this.author}} <br /> Categories: {{this.categories}} <br /> Likes: {{this.likes}} <br /> <a href="http://localhost:3000/comments/{{this._id}}">Comments</a> </div> <br />
+    <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> Author: <a href="http://localhost:3000/users/{{this.author}}">{{this.author}}</a> <br /> Categories: {{this.categories}} <br /> Likes: {{this.likes}} <br /> <a href="http://localhost:3000/comments/{{this._id}}">Comments</a> </div> <br />
      {{/each}}
      <br /> <br />
     </div>

@@ -34,7 +34,7 @@ export class PostsService {
   async createLike(id: string, updatePostDto: UpdatePostDto) {
     const post = await this.findOne(id);
     if (post) {
-      const addLikes = parseInt(post.message.likes) + 1;
+      const addLikes = parseInt(post.message.likes) + updatePostDto.likes;
       const update = await this.postsRepository.update(id, {
         ...updatePostDto,
         likes: addLikes,

@@ -5,6 +5,9 @@ export type CommentDocument = Comment & Document;
 
 @Schema({ versionKey: false, timestamps: true })
 export class Comment {
+  @Prop({ ref: 'Post', type: SchemaTypes.ObjectId })
+  post_id: Types.ObjectId;
+
   @Prop()
   comment: string;
 

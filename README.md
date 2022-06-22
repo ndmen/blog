@@ -27,13 +27,18 @@
 It is a blog on Nest.js(Passport(JWT+Local)) and MongoDB(Mongoose). You can:
 1. Login, Register
 2. Create, read, update and delete posts.
-3. Create, read comments by post id.
+3. Create, read comments.
 4. Create, read likes.
 5. Read user profiles.
 
 See OpenAPI(Swagger) http://localhost:3000/api/#/
-
 See blog on Handlebars http://localhost:3000/posts
+
+Screenshots:
+
+![image](https://user-images.githubusercontent.com/99175880/175179686-179ee282-e2a0-4309-93fb-fea3923873fb.png)
+![image](https://user-images.githubusercontent.com/99175880/175179410-709b94d0-a903-42b1-ba61-31662da4451c.png)
+
 
 ## Installation
 

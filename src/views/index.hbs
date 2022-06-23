@@ -10,7 +10,8 @@
     <h3>About blog</h3>
     <a href="http://localhost:3000/auth/login">Login</a> <br />
     <a href="http://localhost:3000/auth/login">Register</a> <br />
-    <a href="http://localhost:3000/posts/create-post">Create Post</a> <br />
+    <a href="http://localhost:3000/posts/create-post">Create Post</a> <br /> <br />
+    <h4>All posts</h4>
     <div class="list">
      {{#each message}}
     <div><a href="http://localhost:3000/posts/{{this._id}}"><h2>{{this.title}}</h2></a> {{this.description}} <br /> Author: <a href="http://localhost:3000/users/{{this.author}}">{{this.author}}</a> <br /> Categories: {{this.categories}} <br /> Likes: {{this.likes}} <br /> <a href="http://localhost:3000/comments/{{this._id}}">Comments</a> </div> <br />
